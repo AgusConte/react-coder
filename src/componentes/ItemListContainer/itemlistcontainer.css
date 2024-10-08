@@ -1,0 +1,13 @@
+.item-list-container {
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 15px;
+    max-width: 230px;
+    margin-top: 10px;
+}
+
+.item-list-container h2 {
+    font-size: 24px;
+    padding-left: 5px;
+    margin: 0;
+}

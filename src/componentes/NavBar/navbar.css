@@ -1,0 +1,65 @@
+.navbar {
+    width: 100%;
+    border: 1px solid white;
+    display: flex;
+    justify-content: space-between; 
+    align-items: center; 
+    padding: 10px 20px; 
+    transition: background-color 0.5s; 
+}
+
+
+.navbar ul {
+    display: flex;
+    position: absolute; 
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 0; 
+    padding: 0; 
+    list-style: none;
+}
+
+.navbar ul li {
+    padding: 15px 20px;
+    text-align: center; 
+    color: white;
+    transition: color 0.5s, transform 0.5s; 
+}
+
+.navbar ul li:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #ffcc00; 
+    transform: scale(1.2);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5)
+}
+
+.carrito {
+    display: flex;
+    align-items: center;
+}
+
+.carrito p {
+    font-size: 25px;
+    margin-left: 10px;
+    color: white;
+    transition: color 0.5s; 
+}
+
+
+.logo {
+    background: url(../../assets/wow.png) no-repeat;
+    background-size: contain;
+    width: 200px;
+    height: 200px; 
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+}
+
+.brand h1 {
+    font-size: 50px;
+    color: white; 
+    transition: color 0.5s; 
+}
