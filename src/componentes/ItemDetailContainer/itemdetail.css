@@ -1,0 +1,24 @@
+.detail{
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.detail img{
+    width: 360px;
+    height: 300px;
+    margin-right: 20px;
+}
+
+.detail div{
+    width: 300px;
+}
+
+.detail h2{
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+.detail p{
+    margin-bottom: 10px;
+}

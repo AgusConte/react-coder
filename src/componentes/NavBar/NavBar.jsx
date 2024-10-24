@@ -1,20 +1,27 @@
 import "../../assets/wow.png"
 import "./navbar.css"
 import CartWidget from "../CartWidget/CartWidget"
+import { Link } from "react-router-dom"
 
 const NavBar =() => {
 
     return(
         <nav className="navbar">
-            <div className="brand">
+            <Link to="/" className="brand">
                 <div className="logo"></div>
                 <h1>armain</h1>
-            </div>
+            </Link>
 
             <ul>
-                <li>Remeras</li>
-                <li>Gorras</li>
-                <li>Articulos</li>
+                <li>
+                    <Link to="/categoria/remeras">Remeras</Link>
+                </li>
+                <li>
+                    <Link to="/categoria/gorras">Gorras</Link>
+                </li>
+                <li>
+                <Link to="/categoria/articulos">Articulos</Link>
+                </li>
             </ul>
 
             <div className="carrito">
