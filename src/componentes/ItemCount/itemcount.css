@@ -1,0 +1,42 @@
+.sumrestadd div{
+    display: flex;
+    align-items: center;
+    gap: 10px;  
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.sumrestadd p{
+    font-size: 20px;
+}
+
+.sumrest {
+    background-color: #4CAF50;
+    color: white;
+    font-size: 20px;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.sumrest:hover {
+    background-color: #45a049;
+}
+
+
+.add {
+    background-color: #FF5722; 
+    color: white;
+    font-size: 16px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.add:hover {
+    background-color: #e64a19;
+}

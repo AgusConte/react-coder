@@ -6,18 +6,30 @@ import "./ItemDetail.css"
 
 
 const ItemDetailContainer = () => {
-    const [producto, setProduct] = useState({})
+    const [producto, setProduct] = useState(null)
+    const [loading, setLoading] = useState(true)
     const {idProducto} = useParams()
 
     useEffect (() => {
-        getProductos()
-            .then((data) => {
-                const findProducto = data.find((producto) => producto.id === idProducto)
-                setProduct(findProducto)
-            })
+      setLoading(true)
+
+      getProductos()
+        .then((data) => {
+          const findProducto = data.find((producto) => producto.id === idProducto)
+          setProduct(findProducto)
+        })
+        .finally (() => setLoading(false))
     }, [idProducto])
   return (
-    <ItemDetail producto={producto} />
+    <>
+      {
+        loading === true ? (
+          <div>Cargando...</div>
+        ) : (
+          <ItemDetail producto={producto} />
+        )
+      }
+    </>
   )
 }
 

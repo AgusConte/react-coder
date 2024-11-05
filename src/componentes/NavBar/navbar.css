@@ -39,16 +39,17 @@ a{
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5)
 }
 
-.carrito {
-    display: flex;
-    align-items: center;
-}
 
 .carrito p {
     font-size: 25px;
     margin-left: 10px;
     color: white;
     transition: color 0.5s; 
+}
+
+.carrito a{
+    display: flex;
+    align-items: center;
 }
 
 
@@ -68,4 +69,12 @@ a{
     font-size: 50px;
     color: white; 
     transition: color 0.5s; 
+}
+
+.empty-cart{
+    color: gray
+}
+
+.icon-cart{
+    color: rgb(0, 255, 47);
 }

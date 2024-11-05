@@ -6,25 +6,27 @@ import { useParams } from "react-router-dom"
 
 const ItemListContainer = ({prop}) => {
     const [productos, setProductos] = useState([])
+    const [loading, setLoading] = useState(true)
     const {idCategoria} = useParams()
 
     useEffect(() => {
+        setLoading(true)
         getProductos()
-        .then((data) => {
-            if(idCategoria){
-                const filtrarProductos = data.filter((product) => product.categoria === idCategoria)
-                setProductos(filtrarProductos)
-            }
-            else{
-                setProductos(data)
-            }
-        })
-        .catch((error) => {
-            console.log(error)
-        })
-        .finally(() => {
-            console.log("finalizo la promesa")
-        })
+            .then((data) => {
+                if(idCategoria){
+                    const filtrarProductos = data.filter((product) => product.categoria === idCategoria)
+                    setProductos(filtrarProductos)
+                }
+                else{
+                    setProductos(data)
+                }
+            })
+            .catch((error) => {
+                console.log(error)
+            })
+            .finally(() => {
+                setLoading(false)
+            })
     }, [idCategoria])
 
     console.log(productos)
@@ -33,9 +35,13 @@ const ItemListContainer = ({prop}) => {
     return(
         <div className="item-list-container">
             <h2>{prop}</h2>
-            <div>
-                <ItemList productos={productos}/>
-            </div>
+            {
+                loading === true ? (
+                    <div>Cargando...</div>
+                ) :(
+                    <ItemList productos={productos}/>
+                )
+            }
             
         </div>
     )
