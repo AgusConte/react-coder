@@ -4,6 +4,4 @@
 
 ## Descripcion
 
-## Dependencias
-
-firebase, react, react-dom, react-icons, react-router-dom
+Esto es un ecommerce basado en la pagina de un server privado de un World of Warcraft "Warmane", en el cual yo participo activamente y queria promover ciertos articulos del juego muy caracteristicos. Esto es la base de un futuro projecto mejor elaborado y mas enfocado para este server privado
