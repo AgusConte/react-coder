@@ -1,4 +1,4 @@
-import Item from "./item"
+import Item from "./Item.jsx"
 const ItemList = ({productos}) => {
     return(
         <div className="item">
