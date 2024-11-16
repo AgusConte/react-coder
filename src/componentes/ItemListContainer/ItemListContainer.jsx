@@ -1,48 +1,53 @@
 import "./itemlistcontainer.css"
-import { getProductos } from "../../Data/Data.jsx"
 import { useEffect, useState } from "react"
 import ItemList from "./ItemList.jsx"
 import { useParams } from "react-router-dom"
+import { collection, getDocs, query, where } from "firebase/firestore"
+import db from "../../db/db"
 
 const ItemListContainer = ({prop}) => {
     const [productos, setProductos] = useState([])
-    const [loading, setLoading] = useState(true)
     const {idCategoria} = useParams()
 
-    useEffect(() => {
-        setLoading(true)
-        getProductos()
-            .then((data) => {
-                if(idCategoria){
-                    const filtrarProductos = data.filter((product) => product.categoria === idCategoria)
-                    setProductos(filtrarProductos)
-                }
-                else{
-                    setProductos(data)
-                }
-            })
-            .catch((error) => {
-                console.log(error)
-            })
-            .finally(() => {
-                setLoading(false)
-            })
-    }, [idCategoria])
+    const getProductos = () => {
+        const productosRef = collection(db, "productos")
+        getDocs(productosRef)
+            .then((dataDb) => {
+                const productosDb = dataDb.docs.map((productosDb) => {
+                    return {id: productosDb.id, ...productosDb.data()}
+                })
 
-    console.log(productos)
+                setProductos(productosDb)
+            })
+    }
+
+    const getProductosCategoria = () => {
+        const productosRef = collection(db, "productos")
+        const querycategories = query(productosRef, where("categoria", "==", idCategoria))
+        getDocs(querycategories)
+            .then((dataDb) => {
+                const productosDb = dataDb.docs.map((productosDb) => {
+                    return{id: productosDb.id, ...productosDb.data()}
+                })
+
+            setProductos(productosDb)
+            })
+    }
+
+    useEffect(() => {
+        if(idCategoria){
+            getProductosCategoria()
+        }else{
+            getProductos()
+        }
+    }, [idCategoria])
 
 
     return(
         <div className="item-list-container">
             <h2>{prop}</h2>
-            {
-                loading === true ? (
-                    <div>Cargando...</div>
-                ) :(
-                    <ItemList productos={productos}/>
-                )
-            }
             
+            <ItemList productos={productos}/>
         </div>
     )
 }

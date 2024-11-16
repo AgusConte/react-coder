@@ -1,8 +1,11 @@
+import db from "../db/db.js";
+import { addDoc, collection } from "firebase/firestore";
+
 const productos = [
     {
         id: "aa11",
         nombre: "Remera horda",
-        stock: 2,
+        stock: 10,
         precio: 5000,
         img: ["/img/remerawow.webp", "/img/remerawowa.webp", "/img/remerawowb.jpg"],
         categoria: "remeras",
@@ -12,7 +15,7 @@ const productos = [
     {
         id: "aa12",
         nombre: "Remera alianza",
-        stock: 5,
+        stock: 15,
         precio: 5000,
         img: ["/img/remerawow2.webp", "/img/remerawow2a.jpg", "/img/remerawow2b.jpg"],
         categoria: "remeras",
@@ -22,7 +25,7 @@ const productos = [
     {
         id: "ab11",
         nombre: "Gorra wow",
-        stock: 3,
+        stock: 20,
         precio: 4000,
         img: ["/img/gorrawow.jpeg", "/img/gorrawowa.webp", "/img/gorrawowb.jpg"],
         categoria: "gorras",
@@ -32,7 +35,7 @@ const productos = [
     {
         id: "ab12",
         nombre: "Gorra alianza",
-        stock: 5,
+        stock: 25,
         precio: 4000,
         img: ["/img/gorrawow2.jpg", "/img/gorrawow2a.jpg", "/img/gorrawow2b.jpg"],
         categoria: "gorras",
@@ -42,7 +45,7 @@ const productos = [
     {
         id: "ac11",
         nombre: "Humano pala/warrior",
-        stock: 5,
+        stock: 15,
         precio: 6000,
         img: ["/img/muñecowow.png", "/img/muñecowowa.webp", "/img/muñecowowb.webp"],
         categoria: "articulos",
@@ -52,7 +55,7 @@ const productos = [
     {
         id: "ac12",
         nombre: "Elfo druida/rogue",
-        stock: 5,
+        stock: 25,
         precio: 6000,
         img: ["/img/muñecowow2.webp", "/img/muñecowow2a.jpg", "/img/muñecowow2b.webp"],
         categoria: "articulos",
@@ -60,12 +63,13 @@ const productos = [
     },
 ]
 
-const getProductos = () => {
-    return new Promise((resolve, reject) =>{
-        setTimeout(() => {
-            resolve(productos)
-        }, 1000)
+const seedProductos = () => {
+    const productRef = collection(db, "productos")
+    productos.map(({id, ...dataProduct}) => {
+        addDoc(productRef, dataProduct)
     })
+
+    return
 }
 
-export {getProductos}
+seedProductos()

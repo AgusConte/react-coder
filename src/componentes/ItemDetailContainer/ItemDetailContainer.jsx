@@ -1,37 +1,55 @@
 import { useState, useEffect } from "react"
-import { getProductos } from "../../Data/Data"
 import ItemDetail from "./ItemDetail.jsx"
 import { useParams } from "react-router-dom"
 import "./ItemDetail.css"
-
+import { doc, getDoc } from "firebase/firestore"
+import db from "../../db/db.js"
 
 const ItemDetailContainer = () => {
-    const [producto, setProduct] = useState(null)
-    const [loading, setLoading] = useState(true)
-    const {idProducto} = useParams()
+  const [producto, setProducto] = useState(null)
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState(null)
+  const { idProducto } = useParams()
 
-    useEffect (() => {
-      setLoading(true)
+  const getProductoById = () => {
+    const docRef = doc(db, "productos", idProducto)
+    getDoc(docRef)
+      .then((dataDb) => {
+        if (dataDb.exists()) {
+          const productoDb = { id: dataDb.id, ...dataDb.data() }
+          setProducto(productoDb)
+        } else {
+          setError("Producto no encontrado.")
+        }
+      })
+      .catch((err) => {
+        setError("Error al cargar el producto.")
+        console.error("Error al obtener el producto:", err)
+      })
+      .finally(() => {
+        setLoading(false)
+      })
+  }
 
-      getProductos()
-        .then((data) => {
-          const findProducto = data.find((producto) => producto.id === idProducto)
-          setProduct(findProducto)
-        })
-        .finally (() => setLoading(false))
-    }, [idProducto])
+  useEffect(() => {
+    setLoading(true) 
+    setError(null) 
+    getProductoById()
+  }, [idProducto])
+
   return (
-    <>
-      {
-        loading === true ? (
-          <div>Cargando...</div>
-        ) : (
-          <ItemDetail producto={producto} />
-        )
-      }
-    </>
+    <div className="item-detail-container">
+      {loading ? (
+        <div></div>
+      ) : error ? (
+        <div>{error}</div>
+      ) : producto ? (
+        <ItemDetail producto={producto} />
+      ) : (
+        <div>Producto no encontrado.</div>
+      )}
+    </div>
   )
 }
 
 export default ItemDetailContainer
-

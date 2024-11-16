@@ -1,0 +1,97 @@
+.form {
+    background-color: rgb(19, 19, 19);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 0px 10px #ffffff;
+    width: 320px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  .form label {
+    font-size: 16px;
+    margin-bottom: 5px;
+    color: #ffffff;
+    font-weight: bold;
+  }
+  
+  .form input {
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 2px solid #ffffff;
+    border-radius: 5px;
+    background-color: rgb(19, 19, 19);
+    color: #fff;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    outline: none;
+  }
+  
+  .form input:focus {
+    border-color: #fafafa;
+  }
+  
+  .form button {
+    padding: 12px;
+    background-color: #ffffff;
+    color: rgb(19, 19, 19);
+    border: none;
+    border-radius: 5px;
+    font-size: 20px;
+    cursor: pointer;
+    box-shadow: 0 1px 5px #ffffff;
+    transition: background-color 0.3s, transform 0.2s ease-in-out;
+  }
+  
+  .form button:hover {
+    transform: scale(1.05);
+  }
+  
+  .form button:disabled {
+    background-color: #555;
+    cursor: not-allowed;
+  }
+  
+  .form input[type="number"] {
+    -moz-appearance: textfield;
+  }
+  
+  .form input[type="number"]::-webkit-outer-spin-button,
+  .form input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+    }
+  
+
+  .checkoutfinal a{
+    border: 2px solid #00fffb;
+    font-size: 20px;
+    padding: 5px;
+    border-radius: 5px;
+    display: block;
+    margin: auto;
+    text-align: center;
+    width: 250px;
+    margin-top: 20px;
+  }
+
+  .checkoutfinal h2{
+    font-size: 50px;
+    display: block;
+    margin: auto;
+    text-align: center;
+    margin-top: 20px;
+  }
+
+  .checkoutfinal p{
+    font-size: 20px;
+    display: block;
+    margin: auto;
+    text-align: center;
+    margin-top: 20px;
+  }

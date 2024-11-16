@@ -23,11 +23,10 @@ img{
 }
 
 .borrarcarrito{
-    width: 100px;
+    width: 150px;
     height: 50px;
     text-align: center;
-}
-.borrarcarrito {
+    font-size: 15px;
     margin: 0 auto;
     display: block;
     background-color: #f44336;
@@ -36,6 +35,7 @@ img{
     border-radius: 5px;
     cursor: pointer;
     margin-top: 50px;
+    margin-bottom: 50px;
 }
 
 .borrarcarrito:hover {
@@ -69,4 +69,15 @@ img{
     font-size: 20px;
     padding: 5px;
     border-radius: 5px;
+}
+
+.checkoutlink{
+    border: 2px solid #00fffb;
+    font-size: 20px;
+    padding: 5px;
+    border-radius: 5px;
+    display: block;
+    margin: auto;
+    text-align: center;
+    width: 250px;
 }
