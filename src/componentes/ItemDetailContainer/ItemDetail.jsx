@@ -25,7 +25,7 @@ const ItemDetail = ({ producto }) => {
   return (
     <div className="detail">
       <div className="images">
-        <div className="sec-img">
+        <div className="secimg">
           {
             images.map((img) => (
               <img src={img} key={img} onClick={() => setCurrentImg(img)} />
