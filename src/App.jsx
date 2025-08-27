@@ -11,7 +11,7 @@ function App() {
   return (
     <div>
       <Navbar />
-      <ItemListContainer greeting="Bienvenido a Factor BMX" />
+      <ItemListContainer prop="Bienvenido a Factor BMX" />
     </div>
   );
 }
