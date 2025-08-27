@@ -4,7 +4,7 @@ nav {
     align-items: center;
     justify-content: space-between;
     
-    background-color: #222;
+    border: solid 1px #3b3b3b;
     color: white;
     
   }
