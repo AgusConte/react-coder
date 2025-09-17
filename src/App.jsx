@@ -1,18 +1,29 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { BrowserRouter,Route, Routes } from 'react-router-dom';
 import './App.css'
-import Navbar from "./componentes/Navbar";
-import ItemListContainer from "./componentes/ItemListContainer";
+import Error from "./componentes/Error";
+import Home from './componentes/home';
+import Contacto from "./componentes/Contacto";
+import ItemList from './componentes/ItemList';          
+import Detalle from './componentes/Detalle';
+import Layout from './componentes/Layout';
+import ItemListContainer from './componentes/ItemListContainer';
 
 function App() {
-  const [count, setCount] = useState(0)
+  
 
   return (
-    <div>
-      <Navbar />
-      <ItemListContainer prop="Bienvenido a Factor BMX" />
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path= "/" element={<Layout/>}>
+            <Route index element={<Home/>}/>
+            <Route path='/contacto' element={<Contacto/>}/>
+            <Route path='/productos' element={<ItemListContainer/>}/>
+            <Route path='/productos/:id' element={<Detalle/>}/>
+            <Route path='/*' element={<Error/>}/>
+        </Route>  
+      </Routes>  
+    </BrowserRouter>
+
   );
 }
 
