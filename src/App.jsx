@@ -1,4 +1,6 @@
 import { BrowserRouter,Route, Routes } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import {getFirestore, doc ,getDoc} from "firebase/firestore";
 import './App.css'
 import Error from "./componentes/Error";
 import Home from './componentes/home';
@@ -9,7 +11,18 @@ import Layout from './componentes/Layout';
 import ItemListContainer from './componentes/ItemListContainer';
 
 function App() {
-  
+  const [data, setData] =useState({});
+
+  const db = getFirestore();
+
+  useEffect(() => {
+    const itemRef = doc(db, "productos", "Oa1M8hxQ8XFN26hsenPx")
+    getDoc(itemRef).then(snapshot=>{
+      console.log(snapshot);
+      console.log(snapshot.data());
+      setData(snapshot.data())
+    })
+  },[])
 
   return (
     <BrowserRouter>
