@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import {getFirestore, doc ,getDoc} from "firebase/firestore";
 import './App.css'
 import Error from "./componentes/Error";
-import Home from './componentes/Home';
+import Home from "./componentes/Home";
 import Contacto from "./componentes/Contacto";
 import ItemList from './componentes/ItemList';          
 import Detalle from './componentes/Detalle';
