@@ -7,8 +7,10 @@ import Home from "./componentes/Home";
 import Contacto from "./componentes/Contacto";
 import ItemList from './componentes/ItemList';          
 import Detalle from './componentes/Detalle';
-import Layout from './componentes/Layout';
+import Layout from './componentes/NavBar';
 import ItemListContainer from './componentes/ItemListContainer';
+import Carrito from "./componentes/Cart";
+import Recibo from "./componentes/Recibo";
 
 function App() {
   const [data, setData] =useState({});
@@ -32,6 +34,8 @@ function App() {
             <Route path='/contacto' element={<Contacto/>}/>
             <Route path='/productos' element={<ItemListContainer/>}/>
             <Route path='/productos/:id' element={<Detalle/>}/>
+            <Route path="carrito" element={<Carrito />} />
+            <Route path="recibo" element={<Recibo />} />
             <Route path='/*' element={<Error/>}/>
         </Route>  
       </Routes>  

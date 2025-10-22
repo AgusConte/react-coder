@@ -1,25 +1,30 @@
+import "./style.css";
 import { Link, Outlet } from "react-router-dom";
 import logo from "../assets/logo.png";
-import "./style.css";
+import { useCart } from "./CartContext.jsx";
 
-function Layout() {
+function NavBar() {
+  const { cartItems } = useCart();
+
   return (
     <>
       <nav>
         <div>
-          <a href="/">
+          <Link to="/">
             <img src={logo} alt="Logo Factor BMX" />
-          </a>
+          </Link>
         </div>
         <div>
-          <ul >
+          <ul>
             <li><Link to="/">Inicio</Link></li>
             <li><Link to="/productos">Productos</Link></li>
             <li><Link to="/contacto">Contacto</Link></li>
           </ul>
         </div>
         <div>
-          <button>🛒</button>
+          <Link className="icono" to="/carrito">
+            🛒 ({cartItems.length})
+          </Link>
         </div>
       </nav>
 
@@ -28,4 +33,4 @@ function Layout() {
   );
 }
 
-export default Layout;
+export default NavBar;

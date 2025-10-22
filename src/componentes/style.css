@@ -1,5 +1,5 @@
 nav {
-    width:1900px ;
+    width:1905px ;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -32,12 +32,13 @@ nav {
     color: #ff6600;
   }
   
-  nav button {
+  nav .icono {
     background: none;
     border: none;
     color: white;
     font-size: 50px;
     cursor: pointer;
+    margin-left: 90px;
   }
   
   nav button:hover {
@@ -71,8 +72,8 @@ nav {
     align-items: center;
     text-align: center;
   
-    width: 300px;
-    height: 270px;
+    width: 320px;
+    height: 280px;
     padding: 15px;
     margin:50px;
   
@@ -106,8 +107,11 @@ nav {
     height: auto;
     max-height: 160px;
     object-fit: contain;
-    margin-top: 8px;
+    margin-top: 10px;
+    margin-bottom: 10px;
   }
+
+  
   
 
   .detalles {
@@ -150,11 +154,6 @@ nav {
     line-height: 1.6;
     color: #313131;
   }
-
-  .detalles button{
-    margin-top: 10px;
-  }
-  
 
 .contacto {
   max-width: 500px;
@@ -207,3 +206,122 @@ nav {
 .home img{
   margin-top: 20px;
 }
+
+.comprar{
+  border: 1px solid white;
+}
+.comprar:hover{
+  background-color: #ff6200;
+  border: 1px solid black;
+  color: black;
+}
+
+.cart, .recibo {
+  color: black;
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 16px;
+  border: 1px solid #242424;
+  border-radius: 8px;
+  background-color: #f0f0f0;
+}
+
+.cart h1, .recibo h1 {
+  margin-bottom: 12px;
+}
+
+.cart ul, .recibo ul {
+  list-style: none;
+  padding: 0;
+}
+
+.cart li, .recibo li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  padding: 8px;
+  border-bottom: 1px solid #242424;
+}
+
+.cart li img, .recibo li img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  margin-right: 12px;
+}
+
+.cart li button, .recibo li button {
+  margin-left: 4px;
+  cursor: pointer;
+  border: none;
+  background-color: #c5c2c2;
+  border: 1px solid black;
+  color: rgb(0, 0, 0);
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+.cart li button:hover, .recibo li button:hover {
+  background-color: #ff6200;
+}
+
+.recibo {
+  max-width: 600px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.link{
+  background-color: #252525;
+  color: white;
+  border: 1px solid white;
+  padding: 7px;
+  border-radius: 8px;
+}
+.link:hover {
+  background-color: #ff6200;
+  border: 1px solid black;
+  color: black; ;
+}
+
+.cantidad-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 30px;
+  }
+
+.btn-agregar {
+  width: 200px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.cantidad-container button {
+  height: 40px;
+  font-size: 15px;
+  text-align: center;
+  border-radius: 4px;
+  color: white;
+  border: 1px solid #000000;
+  background-color: #252525;
+  cursor: pointer;
+}
+
+.cantidad-container span {
+  width: 30px;
+  font-weight: bold;
+  color: #252525;
+}
+
+.cantidad-container button:hover{
+  background-color: #ff6200;
+  border: 1px solid black;
+  color: black; ;
+}
+
+
+
